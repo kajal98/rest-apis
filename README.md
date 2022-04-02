@@ -7,6 +7,6 @@
 ## Packages used in it :
 
 1. tymon/jwt-auth (https://github.com/tymondesigns/jwt-auth)
-2. dingo/api (https://github.com/dingo/api)
+2. api-ecosystem-for-laravel/dingo-api (https://github.com/api-ecosystem-for-laravel/dingo-api)
 3. cviebrock/eloquent-sluggable (https://github.com/cviebrock/eloquent-sluggable)
 4. laravel/telescope (https://github.com/laravel/telescope)
