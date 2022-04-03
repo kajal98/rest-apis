@@ -5,13 +5,6 @@
 3. Set env variables (Must set mail configurations)
 4. Start the server by **php artisan serve** command.
 
-## Packages used in it :
-
-1. tymon/jwt-auth (https://github.com/tymondesigns/jwt-auth)
-2. api-ecosystem-for-laravel/dingo-api (https://github.com/api-ecosystem-for-laravel/dingo-api)
-3. cviebrock/eloquent-sluggable (https://github.com/cviebrock/eloquent-sluggable)
-4. laravel/telescope (https://github.com/laravel/telescope)
-
 ## To use postman colletion :
 
 1. Import postman collection file in your postman
@@ -20,3 +13,10 @@
 	2. admin_token = ADMIN_TOKEN
 	3. user_token = USER_TOKEN
 3. Now you are ready to run the APIs
+
+## Packages used in it :
+
+1. tymon/jwt-auth (https://github.com/tymondesigns/jwt-auth)
+2. api-ecosystem-for-laravel/dingo-api (https://github.com/api-ecosystem-for-laravel/dingo-api)
+3. cviebrock/eloquent-sluggable (https://github.com/cviebrock/eloquent-sluggable)
+4. laravel/telescope (https://github.com/laravel/telescope)
