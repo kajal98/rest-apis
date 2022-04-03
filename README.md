@@ -13,9 +13,9 @@
 
 ## To use postman colletion :
 
-Markup : * Import postman collection file in your postman
-         * Set global variable as below
-           * url = SERVER_URL // in my case its http://localhost::8000
-           * admin_token = ADMIN_TOKEN
-           * user_token = USER_TOKEN
-         * Now you are ready to run the APIs
+1. Import postman collection file in your postman
+2. Set global variable as below
+	1. url = SERVER_URL (In my case its http://localhost::8000)
+	2. admin_token = ADMIN_TOKEN
+	3. user_token = USER_TOKEN
+3. Now you are ready to run the APIs
