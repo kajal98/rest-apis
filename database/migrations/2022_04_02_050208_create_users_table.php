@@ -21,10 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('role', ['super_admin', 'user']);
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('photo')->nullable();
             $table->string('mobile')->nullable();
             $table->tinyInteger('status')->default(0);
+            $table->string('hobby_ids')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

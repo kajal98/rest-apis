@@ -46,6 +46,14 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware('admin')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
+
+            Route::middleware('user')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/user.php'));
         });
     }
 
@@ -59,5 +67,41 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
+    }
+
+    /**
+     * Define the "admin api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes()
+    {
+        foreach ($this->centralDomains() as $domain) {
+            Route::prefix('api')
+                ->domain($domain)
+                ->middleware('api')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
+        }
+    }
+
+    /**
+     * Define the "user api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapUserRoutes()
+    {
+        foreach ($this->centralDomains() as $domain) {
+            Route::prefix('api')
+                ->domain($domain)
+                ->middleware('api')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/user.php'));
+        }
     }
 }
