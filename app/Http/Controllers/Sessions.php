@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
-use DB;
-use \Dingo\Api\Exception\StoreResourceFailedException;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use \Dingo\Api\Exception\StoreResourceFailedException;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Carbon\Carbon;
+use JWTAuth;
+use DB;
+use App\Models\User;
 use App\Mail\VerifyAccount;
 use App\Mail\Welcome;
 use App\Mail\ForgotPassword;
 use App\Mail\ResetPassword;
-use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Resources\User as UserResource;
-use JWTAuth;
 
 class Sessions extends Controller
 {
@@ -76,7 +76,7 @@ class Sessions extends Controller
 
             $token = DB::table('verify_users')->where('email', $request->email)->first()->token;
 
-            $link = 'http://frontend.example.com/'. 'verify/email/'. $token;
+            $link = config('domain.domain_url'). 'verify/email/'. $token;
 
             Mail::to($request->email)->send(new VerifyAccount($user->first_name, $link, $user->role));
 
@@ -245,17 +245,11 @@ class Sessions extends Controller
             $user=User::where('email', '=', $request->get('email'))->first();
 
             if ($user) {
-                if (!$user->verified) {
+                if (!$user->email_verified_at) {
                     return response()->json([
                         'status' => 'Fail',
                         'code' => 422,
                         'message' => 'You have not confirmed your email, please confirm it first!',
-                    ], 422);
-                } elseif ($user->userProfile->deactivated) {
-                    return response()->json([
-                        'status' => 'Fail',
-                        'code' => 422,
-                        'message' => 'As your account is deactivated, You are not able to change your password!',
                     ], 422);
                 } else {
                     DB::table('password_resets')->where('email', $user->email)->delete();
@@ -328,19 +322,18 @@ class Sessions extends Controller
                         'code' => 422,
                         'message' => 'User not found!',
                     ], 422);
-                } elseif (!$user->verified) {
+                } elseif (!$user->email_verified_at) {
                     return response()->json([
                         'status' => 'Fail',
                         'code' => 422,
                         'message' => 'You have not confirmed your email, please confirm it first!',
                     ], 422);
                 } else {
-                    DB::table('password_resets')->where('email', $user->email)->delete();
-
                     $user->password = Hash::make($request->get('password'));
-                    $user->password_expired_at = date('Y-m-d', strtotime('+1 years')) ;
                     $user->save();
 
+                    DB::table('password_resets')->where('email', $user->email)->delete();
+                    
                     $link =  config('domain.domain_url') . 'login';
 
                     Mail::to($user->email)->send(new ResetPassword($user->first_name));

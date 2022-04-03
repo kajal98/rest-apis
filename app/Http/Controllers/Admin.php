@@ -4,20 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
-use DB;
-use \Dingo\Api\Exception\StoreResourceFailedException;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\VerifyAccount;
-use App\Mail\Welcome;
-use App\Mail\ForgotPassword;
-use App\Mail\ResetPassword;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Exceptions\JWTException;
+use \Dingo\Api\Exception\StoreResourceFailedException;
+use Auth;
+use App\Models\User;
+use App\Models\Hobby;
 use App\Http\Resources\User as UserResource;
-use JWTAuth;
 
 class Admin extends Controller
 {
@@ -30,14 +22,22 @@ class Admin extends Controller
     {
         try
         {
-            $users = User::all();
+            $searched_hobby = $request->hobby;
+
+            $users = User::where('role', 'user')
+            ->when($searched_hobby != null || $searched_hobby != "", function ($q) use ($searched_hobby) {
+                $hobby = Hobby::where('name', 'ILIKE', $searched_hobby)->first();
+
+                return $q->whereJsonContains('hobby_ids', $hobby ? $hobby->id : null);
+            })
+            ->get();
 
             return response()->json([
                 'status' => 'Success',
-                'code' => 201,
-                'users' => $users,
+                'code' => 200,
+                'users' => UserResource::collection($users),
                 'message' => 'You have successfully fetched users!',
-            ], 201);
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'Fail',

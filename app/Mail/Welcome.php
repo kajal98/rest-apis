@@ -2,15 +2,10 @@
 
 namespace App\Mail;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
 
 class Welcome extends Mailable
 {
-    use Queueable, SerializesModels;
-
     /**
      * Create a new message instance.
      *
@@ -29,7 +24,7 @@ class Welcome extends Mailable
     public function build()
     {
         return $this->view('emails.welcome')
-        ->subject("Your profile is now registered")
+        ->subject("Welcome")
         ->with([
             'first_name' => $this->first_name,
         ]);

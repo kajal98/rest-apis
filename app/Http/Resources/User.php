@@ -3,8 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Auth;
-use Illuminate\Support\Facades\Crypt;
+use App\Models\Hobby;
 
 class User extends JsonResource
 {
@@ -18,14 +17,14 @@ class User extends JsonResource
     {
         return [
             'id' => $this->id,
-            'encrypt_id' => Crypt::encrypt($this->id),
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'slug' => $this->slug,
             'email' => $this->email,
-            'email_verified_at' => $this->email_verified_at,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'email_verified_at' => $this->email_verified_at->diffForHumans(),
+            'hobbies' =>  $this->hobby_ids ? Hobby::whereIn('id', $this->hobby_ids)->get('name')->pluck('name') : [],
+            'created_at' => $this->created_at->diffForHumans(),
+            'updated_at' => $this->updated_at->diffForHumans(),
         ];
     }
 }

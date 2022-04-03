@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use DB;
 
 class HobbiesTableSeeder extends Seeder
@@ -14,135 +16,73 @@ class HobbiesTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('hobbies')->insert([
-            'name' => 'Doctorate',
-            'slug' => 'Doctorate',
+            'name' => 'Hobby 1',
+            'slug' => 'hobby_1',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'PhD',
-            'slug' => 'PhD',
+            'name' => 'Hobby 2',
+            'slug' => 'hobby_2',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Master of Arts (MA)',
-            'slug' => 'Master of Arts (MA)',
+            'name' => 'Hobby 3',
+            'slug' => 'hobby_3',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Master of Science (MSc)',
-            'slug' => 'Master of Science (MSc)',
+            'name' => 'Hobby 4',
+            'slug' => 'hobby_4',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Master of engineering (MEng)',
-            'slug' => 'Master of engineering (MEng)',
+            'name' => 'Hobby 5',
+            'slug' => 'hobby_5',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Post Graduate Diploma',
-            'slug' => 'Post Graduate Diploma',
+            'name' => 'Hobby 6',
+            'slug' => 'hobby_6',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Post Graduate Certificate',
-            'slug' => 'Post Graduate Certificate',
+            'name' => 'Hobby 7',
+            'slug' => 'hobby_7',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Post Graduate Certificate in Education',
-            'slug' => 'Post Graduate Certificate in Education',
+            'name' => 'Hobby 8',
+            'slug' => 'hobby_8',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Bachelor of Science (BSc)',
-            'slug' => 'Bachelor of Science (BSc)',
+            'name' => 'Hobby 9',
+            'slug' => 'hobby_9',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Bachelor of Art (BA)',
-            'slug' => 'Bachelor of Art (BA)',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Bachelor in Education (BEd)',
-            'slug' => 'Bachelor in Education (BEd)',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Bachelor in Engineering (BEng)',
-            'slug' => 'Bachelor in Engineering (BEng)',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Graduate Diploma',
-            'slug' => 'Graduate Diploma',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Graduate Certificate',
-            'slug' => 'Graduate Certificate',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Bachelor Degree',
-            'slug' => 'Bachelor Degree',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Higher National Diploma (HND)',
-            'slug' => 'Higher National Diploma (HND)',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Certificate of Higher Education (CertHE)',
-            'slug' => 'Certificate of Higher Education (CertHE)',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'Higher National Certificate (HNC)',
-            'slug' => 'Higher National Certificate (HNC)',
-            'created_at' => date("Y/m/d"),
-            'updated_at' => date("Y/m/d"),
-        ]);
-
-        DB::table('hobbies')->insert([
-            'name' => 'A Level',
-            'slug' => 'A Level',
+            'name' => 'Hobby 10',
+            'slug' => 'hobby_10',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);

@@ -17,7 +17,7 @@ $api->version('v1', function ($api) {
             'middleware' =>
             [
                 'jwt.verify',
-                'admin'
+                'super.admin'
             ]
         ],
         function ($api) {

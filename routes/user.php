@@ -24,6 +24,7 @@ $api->version('v1', function ($api) {
             
             $api->get('get-my-profile', 'App\Http\Controllers\Users@getMyProfile');
             $api->post('update-my-profile', 'App\Http\Controllers\Users@updateMyProfile');
+            $api->post('change-password', 'App\Http\Controllers\Users@changePassword');
         }
     );
 });
