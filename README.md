@@ -1,6 +1,6 @@
 # Rest APIs for User CRUD operation
 
-1. Clone the repo.
+1. Clone the repo by ** git clone https://github.com/kajal98/rest-apis.git**.
 2. Install the composer by **composer install** command.
 3. Set env variables
 4. Start the server by **php artisan serve** command.
