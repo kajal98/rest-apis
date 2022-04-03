@@ -61,6 +61,7 @@ class Sessions extends Controller
             $user->role = 'user';
             $user->status = 0;
             $user->photo = $request->photo;
+            $user->mobile = $request->mobile;
             $user->save();
 
             DB::table('verify_users')->where('email', $request->email)->delete();
