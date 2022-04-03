@@ -23,6 +23,20 @@
 
 ## PHPCS standard
 
-1. To check PHPCS standard first please install **sudo apt install php-codesniffer** and then run the below command in terminal
+To check PHPCS standard first please install **sudo apt install php-codesniffer** and then run the below command in terminal
 
 	phpcs --standard=PSR2 --extensions=php --ignore=bootstrap,config,public/adminer.php,resources,storage,routes,tests,vendor,database/migrations,database/seeds,Envoy.blade.php,public/index.php --exclude=Generic.Files.LineLength .
+	
+## Email templates used in this repo
+1. For verify email
+![Verify email - kjlkajal98@gmail com - Gmail](https://user-images.githubusercontent.com/18494848/161420133-7266b896-2ba8-4089-8102-cf9197c6e6b6.png)
+	
+2. For welcome
+![Welcome - kjlkajal98@gmail com - Gmail](https://user-images.githubusercontent.com/18494848/161420159-dc2fdd15-3402-46b9-a873-b7f5742b5e3b.png)
+
+3. For forgot password
+![Reset your password - kjlkajal98@gmail com - Gmail](https://user-images.githubusercontent.com/18494848/161420170-0cf2fd6d-b6bf-4950-a391-188a9b144e50.png)
+
+4. For reset password
+![Password reset successfully - kjlkajal98@gmail com - Gmail](https://user-images.githubusercontent.com/18494848/161420185-c756c0af-c22a-4754-95af-5937634767f1.png)
+
