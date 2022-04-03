@@ -2,7 +2,8 @@
 
 1. Clone the repo.
 2. Install the composer by **composer install** command.
-3. Start the server by **php artisan serve** command.
+3. Set env variables
+4. Start the server by **php artisan serve** command.
 
 ## Packages used in it :
 
