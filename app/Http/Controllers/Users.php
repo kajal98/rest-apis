@@ -24,7 +24,7 @@ class Users extends Controller
     {
         $user = Auth::user();
         
-        // try {
+        try {
             if (!$user) {
                 return response()->json([
                     'status' => 'Fail',
@@ -41,13 +41,13 @@ class Users extends Controller
                     'user' => new UserResource($user)
                 ], 200);
             }
-        // } catch (\Exception $e) {
-        //     return response()->json([
-        //         'status' => 'Fail',
-        //         'code' => 422,
-        //         'message' => 'Something went wrong, Please try after sometime!',
-        //     ], 422);
-        // }
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'Fail',
+                'code' => 422,
+                'message' => 'Something went wrong, Please try after sometime!',
+            ], 422);
+        }
     }
 
     /**
@@ -103,7 +103,7 @@ class Users extends Controller
             throw new StoreResourceFailedException('Please correct following errors!', $validator->errors());
         }
 
-        // try {
+        try {
             $old_password = $request->old_password;
 
             $user = Auth::user();
@@ -128,12 +128,12 @@ class Users extends Controller
                     'message' => 'You have entered wrong current password!',
                 ], 422);
             }
-        // } catch (\Exception $e) {
-        //     return response()->json([
-        //         'status' => 'Fail',
-        //         'code' => 422,
-        //         'message' => 'Something went wrong, Please try after sometime!',
-        //     ], 422);
-        // }
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'Fail',
+                'code' => 422,
+                'message' => 'Something went wrong, Please try after sometime!',
+            ], 422);
+        }
     }
 }

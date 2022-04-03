@@ -42,7 +42,6 @@ class Sessions extends Controller
         }
 
         try {
-
             // If front end side passing you base64 format of image then you have to convert that into image and then have to store it in local or s3 bucket like below, here I have assumed that front end side is passing direct url after uploading it to the s3 bucket or some where else.
 
             // if (preg_match("/data:*/", $request->photo)) {

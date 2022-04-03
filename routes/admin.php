@@ -23,8 +23,8 @@ $api->version('v1', function ($api) {
         function ($api) {
             
             $api->get('get-users', 'App\Http\Controllers\Admin@getUsers');
-            $api->get('view-user', 'App\Http\Controllers\Admin@viewUser');
-            $api->delete('delete-user', 'App\Http\Controllers\Admin@deleteUser');
+            $api->get('view-user/{user_slug}', 'App\Http\Controllers\Admin@viewUser');
+            $api->delete('delete-user/{user_slug}', 'App\Http\Controllers\Admin@deleteUser');
         }
     );
 });

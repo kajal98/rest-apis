@@ -20,3 +20,9 @@
 2. api-ecosystem-for-laravel/dingo-api (https://github.com/api-ecosystem-for-laravel/dingo-api)
 3. cviebrock/eloquent-sluggable (https://github.com/cviebrock/eloquent-sluggable)
 4. laravel/telescope (https://github.com/laravel/telescope)
+
+## PHPCS standard
+
+1. To check PHPCS standard first please install **sudo apt install php-codesniffer** and then run the below command in terminal
+
+	phpcs --standard=PSR2 --extensions=php --ignore=bootstrap,config,public/adminer.php,resources,storage,routes,tests,vendor,database/migrations,database/seeds,Envoy.blade.php,public/index.php --exclude=Generic.Files.LineLength .
