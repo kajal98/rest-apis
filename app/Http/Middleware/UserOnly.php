@@ -24,6 +24,6 @@ class UserOnly
                 return response()->json(['status' => 'Fail', 'code' => '400', 'message' => 'You do not have rights to access this location.']);
             }
         }
-        return response()->json(['status' => 'Fail', 'code' => '400', 'message' => 'Please login first to access Admin Portal.']);
+        return response()->json(['status' => 'Fail', 'code' => '400', 'message' => 'Please login first to access User Portal.']);
     }
 }

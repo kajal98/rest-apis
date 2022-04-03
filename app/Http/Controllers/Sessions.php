@@ -33,7 +33,7 @@ class Sessions extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'mobile' => 'required|string|numeric',
+            'mobile' => 'required|string|numeric|digits:10',
             'photo' => 'required|string',
         ]);
 
@@ -42,7 +42,6 @@ class Sessions extends Controller
         }
 
         try {
-
             // If front end side passing you base64 format of image then you have to convert that into image and then have to store it in local or s3 bucket like below, here I have assumed that front end side is passing direct url after uploading it to the s3 bucket or some where else.
 
             // if (preg_match("/data:*/", $request->photo)) {
@@ -62,6 +61,7 @@ class Sessions extends Controller
             $user->role = 'user';
             $user->status = 0;
             $user->photo = $request->photo;
+            $user->mobile = $request->mobile;
             $user->save();
 
             DB::table('verify_users')->where('email', $request->email)->delete();

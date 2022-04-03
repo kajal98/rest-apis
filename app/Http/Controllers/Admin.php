@@ -20,17 +20,16 @@ class Admin extends Controller
      */
     public function getUsers(Request $request)
     {
-        try
-        {
+        try {
             $searched_hobby = $request->hobby;
 
-            $users = User::where('role', 'user')
-            ->when($searched_hobby != null || $searched_hobby != "", function ($q) use ($searched_hobby) {
-                $hobby = Hobby::where('name', 'ILIKE', $searched_hobby)->first();
+            $users = User::where([['role', 'user',], ['email_verified_at', '!=', null]])
+                    ->when($searched_hobby != null || $searched_hobby != "", function ($q) use ($searched_hobby) {
+                        $hobby = Hobby::where('name', 'ILIKE', $searched_hobby)->first();
 
-                return $q->whereJsonContains('hobby_ids', $hobby ? $hobby->id : null);
-            })
-            ->get();
+                        return $q->whereJsonContains('hobby_ids', $hobby ? $hobby->id : null);
+                    })
+                    ->get();
 
             return response()->json([
                 'status' => 'Success',
@@ -53,7 +52,7 @@ class Admin extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function viewUser(Request $request, $user_slug)
+    public function viewUser($user_slug)
     {
         try {
             $user = User::where('slug', $user_slug)->first();
@@ -89,7 +88,7 @@ class Admin extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function deleteUser(Request $request, $user_slug)
+    public function deleteUser($user_slug)
     {
         try {
             $user = User::where('slug', $user_slug)->first();

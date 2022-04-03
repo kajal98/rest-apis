@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="x-apple-disable-message-reformatting">
-  <title></title>
+  <title>Rest APIs | Verify Email</title>
   <style>
     table, td, div, h1, p {
       font-family: Arial, sans-serif;
