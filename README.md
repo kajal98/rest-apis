@@ -14,7 +14,7 @@
 ## To use postman colletion :
 
 1. Import postman collection file in your postman
-2. Set global variable as below
+2. Set global variables in postman as below
 	1. url = SERVER_URL (In my case its http://localhost::8000)
 	2. admin_token = ADMIN_TOKEN
 	3. user_token = USER_TOKEN
