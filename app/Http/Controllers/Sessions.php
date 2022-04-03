@@ -33,7 +33,7 @@ class Sessions extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'mobile' => 'required|string|numeric',
+            'mobile' => 'required|string|numeric|digits:10',
             'photo' => 'required|string',
         ]);
 
