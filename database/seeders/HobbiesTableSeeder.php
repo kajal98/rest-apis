@@ -16,73 +16,114 @@ class HobbiesTableSeeder extends Seeder
      */
     public function run()
     {
-
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 1',
-            'slug' => 'hobby_1',
+            'name' => 'Acting',
+            'slug' => 'acting',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 2',
-            'slug' => 'hobby_2',
+            'name' => 'Baking',
+            'slug' => 'baking',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 3',
-            'slug' => 'hobby_3',
+            'name' => 'Blogging',
+            'slug' => 'blogging',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 4',
-            'slug' => 'hobby_4',
+            'name' => 'Coding',
+            'slug' => 'coding',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 5',
-            'slug' => 'hobby_5',
+            'name' => 'Cooking',
+            'slug' => 'cooking',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 6',
-            'slug' => 'hobby_6',
+            'name' => 'Crafting',
+            'slug' => 'crafting',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 7',
-            'slug' => 'hobby_7',
+            'name' => 'Dance',
+            'slug' => 'dance',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 8',
-            'slug' => 'hobby_8',
+            'name' => 'Playing Games',
+            'slug' => 'playing-games',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 9',
-            'slug' => 'hobby_9',
+            'name' => 'Ice skating',
+            'slug' => 'ice-skating',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);
 
         DB::table('hobbies')->insert([
-            'name' => 'Hobby 10',
-            'slug' => 'hobby_10',
+            'name' => 'Listening Music',
+            'slug' => 'listening-music',
+            'created_at' => date("Y/m/d"),
+            'updated_at' => date("Y/m/d"),
+        ]);
+
+        DB::table('hobbies')->insert([
+            'name' => 'Origami',
+            'slug' => 'origami',
+            'created_at' => date("Y/m/d"),
+            'updated_at' => date("Y/m/d"),
+        ]);
+
+        DB::table('hobbies')->insert([
+            'name' => 'Painting',
+            'slug' => 'painting',
+            'created_at' => date("Y/m/d"),
+            'updated_at' => date("Y/m/d"),
+        ]);
+
+        DB::table('hobbies')->insert([
+            'name' => 'Photography',
+            'slug' => 'photography',
+            'created_at' => date("Y/m/d"),
+            'updated_at' => date("Y/m/d"),
+        ]);
+
+        DB::table('hobbies')->insert([
+            'name' => 'Quilling',
+            'slug' => 'quilling',
+            'created_at' => date("Y/m/d"),
+            'updated_at' => date("Y/m/d"),
+        ]);
+
+        DB::table('hobbies')->insert([
+            'name' => 'Reading',
+            'slug' => 'reading',
+            'created_at' => date("Y/m/d"),
+            'updated_at' => date("Y/m/d"),
+        ]);
+
+        DB::table('hobbies')->insert([
+            'name' => 'Watching movies',
+            'slug' => 'watching-movies',
             'created_at' => date("Y/m/d"),
             'updated_at' => date("Y/m/d"),
         ]);

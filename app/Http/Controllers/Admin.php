@@ -23,7 +23,7 @@ class Admin extends Controller
         try {
             $searched_hobby = $request->hobby;
 
-            $users = User::where('role', 'user')
+            $users = User::where([['role', 'user',], ['email_verified_at', '!=', null]])
                     ->when($searched_hobby != null || $searched_hobby != "", function ($q) use ($searched_hobby) {
                         $hobby = Hobby::where('name', 'ILIKE', $searched_hobby)->first();
 
