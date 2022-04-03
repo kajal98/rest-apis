@@ -1,4 +1,4 @@
-# Rest APIs for User CRUD operation
+# Rest APIs for User CRUD operation in Laravel v8.75
 
 1. Clone the repo by **git clone https://github.com/kajal98/rest-apis.git**
 2. Install the composer by **composer install** command.
