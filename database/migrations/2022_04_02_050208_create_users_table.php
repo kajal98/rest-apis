@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('photo')->nullable();
             $table->string('mobile')->nullable();
             $table->tinyInteger('status')->default(0);
-            $table->string('hobby_ids')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

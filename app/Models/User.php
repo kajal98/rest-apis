@@ -25,8 +25,7 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'photo',
         'mobile',
-        'status',
-        'hobby_ids'
+        'status'
     ];
 
     protected $guard_name = 'api';
@@ -58,7 +57,6 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'hobby_ids' => 'array',
     ];
 
     /**
@@ -84,5 +82,10 @@ class User extends Authenticatable implements JWTSubject
             'email' => $this->email,
             'role' => $this->role
         ];
+    }
+
+    public function hobbies()
+    {
+        return $this->belongsToMany(Hobby::class);
     }
 }
