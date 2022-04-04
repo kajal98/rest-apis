@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use \Dingo\Api\Exception\StoreResourceFailedException;
 use Auth;
 use App\Models\User;
+use App\Models\Hobby;
 use App\Http\Resources\User as UserResource;
 use App\Mail\ChangePassword;
 
@@ -68,8 +69,12 @@ class Users extends Controller
 
         try {
             $user = Auth::user();
-            $user->hobby_ids = $request->hobby_ids;
-            $user->save();
+            // First detach old hobbies
+            $user->hobbies()->detach();
+
+            // Then assign new hobbies
+            $hobbies = Hobby::find($request->hobby_ids);
+            $user->hobbies()->attach($hobbies);
 
             return response()->json([
                 'status' => 'Success',

@@ -25,7 +25,7 @@ class User extends JsonResource
             'mobile' => $this->mobile,
             'photo' => $this->photo,
             'status' => $this->status ? 'Active' : 'Deactive',
-            'hobbies' =>  $this->hobby_ids ? Hobby::whereIn('id', $this->hobby_ids)->get('name')->pluck('name') : [],
+            'hobbies' =>  $this->hobbies->pluck('name'),
             'created_at' => $this->created_at->diffForHumans(),
             'updated_at' => $this->updated_at->diffForHumans(),
         ];

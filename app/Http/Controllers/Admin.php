@@ -25,9 +25,9 @@ class Admin extends Controller
 
             $users = User::where([['role', 'user',], ['email_verified_at', '!=', null]])
                     ->when($searched_hobby != null || $searched_hobby != "", function ($q) use ($searched_hobby) {
-                        $hobby = Hobby::where('name', 'ILIKE', $searched_hobby)->first();
-
-                        return $q->whereJsonContains('hobby_ids', $hobby ? $hobby->id : null);
+                        return $q->whereHas('hobbies', function ($hobby) use ($searched_hobby) {
+                            $hobby->where('name', 'ILIKE', '%' . $searched_hobby . '%');
+                        });
                     })
                     ->get();
 
